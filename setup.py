@@ -2,9 +2,8 @@ from setuptools import find_packages,setup
 from typing import List
 
 
-
 HYPEN_E_DOT = '-e .'
-def ger_requirements(file_path:str)->List[str]:
+def get_requirements(file_path:str)->List[str]:
     ''' 
     this funtion will return the requirements of list
     '''
@@ -12,11 +11,11 @@ def ger_requirements(file_path:str)->List[str]:
 
     with open(file_path) as file_obj:
         requirements = file_obj.readline
-        requirements = [req.replace("\n","") for req in requirements]
+        requirements = [req.replace("\n","").strip() for req in requirements]
 
         if HYPEN_E_DOT in requirements:
             requirements.remove(HYPEN_E_DOT)
-            
+
         return requirements
 
 
@@ -26,5 +25,5 @@ setup(
     version= "0.0.1",
     author_email= 'sumitmali07125@gmail.com',
     packages= find_packages(),
-    install_requires=get_requirements('requirements.txt')
+    install_requires=get_requirements('./requirements.txt')
 )
