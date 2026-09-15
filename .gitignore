@@ -67,6 +67,15 @@ instance/
 # Local application entry point
 app.py
 
+# Local training outputs and deployment-excluded files
+.vscode/
+artifacts/*.csv
+catboost_info/
+logs/
+notebook/
+__pycache__/
+*.pyc
+
 # Scrapy stuff:
 .scrapy
 
